@@ -116,9 +116,12 @@ notebook = ttk.Notebook(window)
 # Create tabs for "Add" and "Display"
 add_tab = ttk.Frame(notebook)
 display_tab = ttk.Frame(notebook)
+score_tab = ttk.Frame(notebook)
 
 notebook.add(add_tab, text="Add")
+notebook.add(score_tab, text="Score")
 notebook.add(display_tab, text="Display")
+
 notebook.pack()
 
 # Add Individual Participant section
@@ -153,36 +156,56 @@ member2_label.pack()
 member2_entry = ttk.Entry(add_tab)
 member2_entry.pack()
 
+member3_label = ttk.Label(add_tab, text="Member 2:")
+member3_label.pack()
+
+member3_entry = ttk.Entry(add_tab)
+member3_entry.pack()
+
+member4_label = ttk.Label(add_tab, text="Member 2:")
+member4_label.pack()
+
+member4_entry = ttk.Entry(add_tab)
+member4_entry.pack()
+
+member5_label = ttk.Label(add_tab, text="Member 2:")
+member5_label.pack()
+
+member5_entry = ttk.Entry(add_tab)
+member5_entry.pack()
+
 team_button = ttk.Button(add_tab, text="Add Team", command=register_team)
 team_button.pack()
 
 # Enter Event Results section
-event_label = ttk.Label(add_tab, text="Enter Event Results")
+event_label = ttk.Label(score_tab, text="Enter Event Results")
 event_label.pack()
 
-event_choice_label = ttk.Label(add_tab, text="Select Event:")
+event_choice_label = ttk.Label(score_tab, text="Select Event:")
 event_choice_label.pack()
 
-event_choice = ttk.Combobox(add_tab, values=events, state="readonly")
+event_choice = ttk.Combobox(score_tab, values=events, state="readonly")
 event_choice.current(0)  # Default event choice
 event_choice.pack()
 
-score_label = ttk.Label(add_tab, text="Enter Score:")
+score_label = ttk.Label(score_tab, text="Enter Score:")
 score_label.pack()
 
-participant_label = ttk.Label(add_tab, text="Select Participant/Team:")
+participant_label = ttk.Label(score_tab, text="Select Participant/Team:")
 participant_label.pack()
 
-participant_choice = ttk.Combobox(add_tab, values=[f"Participant: {participant['Name']}" for participant in participants] +
+participant_choice = ttk.Combobox(score_tab, values=[f"Participant: {participant['Name']}" for participant in participants] +
                                                  [f"Team: {team['Team Name']}" for team in teams],
                                   state="readonly")
 participant_choice.current(0)  # Default participant/team choice
 participant_choice.pack()
+scoreName = ttk.Label(score_tab, text="Enter score:")
+scoreName.pack()
 
-score_entry = ttk.Entry(add_tab)
+score_entry = ttk.Entry(score_tab)
 score_entry.pack()
 
-results_button = ttk.Button(add_tab, text="Enter Results", command=enter_event_results)
+results_button = ttk.Button(score_tab, text="Enter Results", command=enter_event_results)
 results_button.pack()
 
 # Display Details section
